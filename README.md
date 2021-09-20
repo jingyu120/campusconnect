@@ -5,30 +5,27 @@ ClassConnect, an application for students to add/drop classes.
 
 Team Members:
 Justin Zhang (jingyu120@gmail.com)
+Gavin Swartz (gavinswartz10@gmail.com)
+Michael Zhou (akooo445@gmail.com)
+Tushar KumarC (tushar.Kumar.999@gmail.com)
+Manli Sun (MSUN17@depaul.edu)
 
 
 Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+JDK 11
 
-Bootstrap
-JQuery
-Laravel
+Spring Boot
+
+
 Getting Started
 This is an example of how you may give instructions on setting up your project locally. To get a local copy up and running follow these simple example steps.
 
 Prerequisites
 This is an example of how to list things you need to use the software and how to install them.
 
-npm
-npm install npm@latest -g
+
 Installation
-Get a free API Key at https://example.com
-Clone the repo
-git clone https://github.com/your_username_/Project-Name.git
-Install NPM packages
-npm install
-Enter your API in config.js
-const API_KEY = 'ENTER YOUR API';
+
 Usage
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
@@ -48,9 +45,7 @@ Open a Pull Request
 License
 Distributed under the MIT License. See LICENSE for more information.
 
-Contact
-Your Name - @your_twitter - email@example.com
 
-Project Link: https://github.com/your_username/repo_name
+Project Link: https://github.com/jingyu120/campusconnect/
 
 Acknowledgements
