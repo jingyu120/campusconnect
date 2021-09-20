@@ -1,6 +1,10 @@
 # campusconnect
 About The Project
 Product Name 
+ClassConnect, an application for students to add/drop classes.
+
+Team Members:
+Justin Zhang (jingyu120@gmail.com)
 
 
 Built With
