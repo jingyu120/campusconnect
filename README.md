@@ -5,6 +5,7 @@ ClassConnect, an application for students to add/drop classes.
 
 Team Members:
 Justin Zhang (jingyu120@gmail.com)
+Tushar Kumar (tushar.kumar.999@gmail.com)
 
 
 Built With
