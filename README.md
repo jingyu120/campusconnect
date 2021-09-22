@@ -8,7 +8,7 @@ ClassConnect, an application for students to add/drop classes.
 Team Members:
 
 Justin Zhang (jingyu120@gmail.com)
-Gavin Swartz (gavinswartz10@gmail.com)
+Gavin Swartz (gswartz@depaul.edu)
 Michael Zhou (akooo445@gmail.com)
 Tushar KumarC (tushar.Kumar.999@gmail.com)
 Manli Sun (MSUN17@depaul.edu)
@@ -35,6 +35,7 @@ Professor Management
 
 
 Usage
+
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
