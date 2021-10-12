@@ -1,16 +1,26 @@
 DROP TABLE IF EXISTS course_students;
 DROP TABLE IF EXISTS students;
 DROP TABLE IF EXISTS course;
+DROP TABLE IF EXISTS student_enrollment;
 DROP SEQUENCE IF EXISTS hibernate_sequence;
 
 CREATE SEQUENCE hibernate_sequence START WITH 100 INCREMENT BY 1;
 
 CREATE TABLE students (
-                          id serial  PRIMARY KEY,
-                          stu_id VARCHAR(10),
+                          studentID serial  PRIMARY KEY,
+                          usr_id VARCHAR(10),
                           nm VARCHAR(50),
                           email VARCHAR(50),
-                          admitted_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                          admitted_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                          major VARCHAR(50),
+                          minor VARCHAR(50)
+);
+
+CREATE TABLE student_enrollment (
+                                    studentID serial,
+                                    courseID serial,
+                                    enrolled_period varchar(50),
+                                    PRIMARY KEY (studentID, courseID)
 );
 
 CREATE TABLE course (

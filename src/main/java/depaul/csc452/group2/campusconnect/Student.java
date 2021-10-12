@@ -18,16 +18,23 @@ import lombok.Data;
 public class Student {
     @Id
     @GeneratedValue
-    private long id;
+    private long studentID;
 
-    @Column(name = "stu_id")
-    private String studentId;
+
+    @Column(name = "usr_id")
+    private String userID;
 
     @Column(name = "nm")
     private String name;
 
     @Email(message = "not valid email address format")
     private String email;
+
+    @Column
+    private String major;
+
+    @Column
+    private String minor;
 
     private Date admittedDate;
 }

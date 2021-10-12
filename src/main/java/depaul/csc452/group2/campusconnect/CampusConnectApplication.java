@@ -47,6 +47,7 @@ public class CampusConnectApplication {
 			Student student = new Student();
 			student.setEmail("james@bond.uk");
 			student.setName("James Bond");
+			student.setMajor("Computer Science");
 			repository.save(student);
 			log.info("After James: " + repository.count());
 		};
