@@ -30,10 +30,8 @@ public class Student {
     @Email(message = "not valid email address format")
     private String email;
 
-    @Column
     private String major;
 
-    @Column
     private String minor;
 
     private Date admittedDate;
