@@ -59,22 +59,22 @@ public class CampusConnectApplication {
 //	}
 
 	@Bean
-	public CommandLineRunner saveCourseReview(CourseReviewRepository repository) {
+	public CommandLineRunner saveStudent(StudentRepository repository) {
 		return (args) -> {
-			CourseReview review1 = new CourseReview();
-			review1.setCourse("hello");
-			review1.setReview("some data");
-			repository.save(review1);
+			Student s1 = new Student();
+			s1.setName("Justin");
+			s1.setMajor("Computer Science");
+			repository.save(s1);
 
-			CourseReview review2 = new CourseReview();
-			review2.setCourse("SE450");
-			review2.setReview("useless");
-			repository.save(review2);
+			Student s2 = new Student();
+			s2.setName("Vanessa");
+			s2.setMajor("Civil Engineering");
+			repository.save(s2);
 
-			List<CourseReview> reviews = repository.findAll();
-			for (CourseReview review : reviews) {
-				log.info(review.toString());
-				System.out.println(review);
+			List<Student> students = repository.findAll();
+			for (Student s : students) {
+				log.info(s.toString());
+				System.out.println(s);
 			}
 		};
 	}
@@ -83,7 +83,6 @@ public class CampusConnectApplication {
 	public CommandLineRunner addStudent(StudentRepository repository) {
 		return (args) -> {
 			// fetch all Course
-			log.info("Before James: " + repository.count());
 			Student student2 = new Student();
 			student2.setEmail("student@gmail.com");
 			student2.setName("Jon Snow");
@@ -95,7 +94,12 @@ public class CampusConnectApplication {
 			student.setName("James Bond");
 			student.setMajor("Computer Science");
 			repository.save(student);
-			log.info("After James: " + repository.count());
+
+			List<Student> students = repository.findAll();
+			for (Student s : students) {
+				log.info(s.toString());
+				System.out.println(s);
+			}
 		};
 	}
 
