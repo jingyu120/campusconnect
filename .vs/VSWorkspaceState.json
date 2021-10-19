@@ -1,0 +1,21 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\main",
+    "\\src\\main\\java",
+    "\\src\\main\\java\\depaul",
+    "\\src\\main\\java\\depaul\\csc452",
+    "\\src\\main\\java\\depaul\\csc452\\group2",
+    "\\src\\main\\java\\depaul\\csc452\\group2\\campusconnect",
+    "\\src\\main\\resources",
+    "\\src\\test",
+    "\\src\\test\\java",
+    "\\src\\test\\java\\depaul",
+    "\\src\\test\\java\\depaul\\csc452",
+    "\\src\\test\\java\\depaul\\csc452\\group2",
+    "\\src\\test\\java\\depaul\\csc452\\group2\\campusconnect"
+  ],
+  "SelectedNode": "\\src\\main\\java\\depaul\\csc452\\group2\\campusconnect\\AdminRepository.java",
+  "PreviewInSolutionExplorer": false
+}
