@@ -16,22 +16,22 @@ CREATE TABLE students (
                           minor VARCHAR(50)
 );
 
-CREATE TABLE student_enrollment (
-                                    studentID VARCHAR(50),
-                                    courseID VARCHAR(50),
-                                    enrolled_period varchar(50),
-                                    PRIMARY KEY (studentID, courseID)
-);
+-- CREATE TABLE student_enrollment (
+--                                     studentID VARCHAR(50),
+--                                     courseID VARCHAR(50),
+--                                     enrolled_period varchar(50),
+--                                     PRIMARY KEY (studentID, courseID)
+-- );
 
-CREATE TABLE course (
-                        id serial  PRIMARY KEY,
-                        dept char(2),
-                        num int,
-                        reviews json
-);
+-- CREATE TABLE course (
+--                         id serial  PRIMARY KEY,
+--                         dept char(2),
+--                         num int,
+--                         reviews json
+-- );
 
-CREATE TABLE course_students (
-                                 id serial  PRIMARY KEY,
-                                 course_id int,
-                                 students_id int
-);
+-- CREATE TABLE course_students (
+--                                  id serial  PRIMARY KEY,
+--                                  course_id int,
+--                                  students_id int
+-- );
