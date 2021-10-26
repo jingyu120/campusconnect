@@ -16,13 +16,8 @@ import javax.persistence.Transient;
 @NoArgsConstructor
 @Document(collection = "UserProfile")
 public class UserProfile {
-    @Transient
-    public static final String SEQUENCE_NAME = "users_sequence";
-
     @Id
-    private long userID;
-
-
+    private String userID;
     private String email;
     private String address;
     private String emergency;

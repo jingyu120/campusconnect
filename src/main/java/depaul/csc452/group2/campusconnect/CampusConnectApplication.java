@@ -23,17 +23,18 @@ public class CampusConnectApplication {
     @Bean
     public CommandLineRunner saveUserProfile(UserProfileRepository repository) {
         return (args) -> {
+//            repository.deleteAll();
             UserProfile profile = new UserProfile();
-            profile.setUserID(1);
+            profile.setUserID("jingyu120");
             profile.setEmail("myemail@gmail.com");
             profile.setGender("male");
             repository.save(profile);
 
             UserProfile profile2 = new UserProfile();
-            profile2.setUserID(2);
+            profile2.setUserID("userID123");
             profile2.setEmail("goldentanchy@gmail.com");
             profile2.setGender("female");
-            repository.save(profile);
+            repository.save(profile2);
 
             List<UserProfile> profiles = repository.findAll();
             for (UserProfile p : profiles) {
@@ -63,30 +64,6 @@ public class CampusConnectApplication {
 			}
 		};
 	}
-//
-//	@Bean
-//	public CommandLineRunner addStudent(StudentRepository repository) {
-//		return (args) -> {
-//			// fetch all Course
-//			Student student2 = new Student();
-//			student2.setEmail("student@gmail.com");
-//			student2.setName("Jon Snow");
-//			student2.setMajor("WinterMajor");
-//			repository.save(student2);
-//
-//			Student student = new Student();
-//			student.setEmail("james@bond.uk");
-//			student.setName("James Bond");
-//			student.setMajor("Computer Science");
-//			repository.save(student);
-//
-//			List<Student> students = repository.findAll();
-//			for (Student s : students) {
-//				log.info(s.toString());
-//				System.out.println(s);
-//			}
-//		};
-//	}
 
     public static void main(String[] args) {
         SpringApplication.run(CampusConnectApplication.class, args);
