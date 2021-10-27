@@ -21,7 +21,7 @@ CREATE TABLE students (
 --                                     courseID VARCHAR(50),
 --                                     enrolled_period varchar(50),
 --                                     PRIMARY KEY (studentID, courseID)
--- );
+-- )
 
 -- CREATE TABLE course (
 --                         id serial  PRIMARY KEY,
