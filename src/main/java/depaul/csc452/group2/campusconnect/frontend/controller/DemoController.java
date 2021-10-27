@@ -6,11 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("hello")
+@RequestMapping
 public class DemoController {
-    @GetMapping
+    @GetMapping("login")
     public ModelAndView something () {
-        ModelAndView mv = new ModelAndView("hellos");
+        ModelAndView mv = new ModelAndView("sign_in");
         return mv;
     }
 }
