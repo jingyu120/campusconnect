@@ -27,13 +27,7 @@ class majorController {
     public String majorDetails(@PathVariable String name) {
         return majorRepository.findBymajorname(name).toString();
     }
-
-    @CrossOrigin(origins = "http://localhost:8080")
-    @PutMapping("/update/{name}")
-    public void updateMajorDetails(@RequestBody Major newMajor, @PathVariable int name) {
-        majorRepository.save(newMajor);
-    }
-
+    
     @CrossOrigin(origins = "http://localhost:8080")
     @DeleteMapping("/deleteCourse/{name}/{cid}")
     public void DeleteCourse(@PathVariable String name, @PathVariable long cid) {
@@ -42,6 +36,8 @@ class majorController {
         courseRepository.delete(deleteCourse);
         noSQLCourseRepository.deleteById(deleteCourse.getCourseid());
     }
+
+    
 
     @CrossOrigin(origins = "http://localhost:8080")
     @PutMapping("/addCourse/{name}")
@@ -55,6 +51,10 @@ class majorController {
         majorRepository.save(curMajor);
 
     }
-
+    @CrossOrigin(origins = "http://localhost:8080")
+    @PutMapping("/update/{name}")
+    public void updateMajorDetails(@RequestBody Major newMajor, @PathVariable int name) {
+        majorRepository.save(newMajor);
+    }
 
 }
