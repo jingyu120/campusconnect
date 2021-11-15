@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 //(Manli)Courses: courseID(p),  courseName, prerequisite, requiredText
@@ -27,5 +29,12 @@ public class Courses {
 
     private String courseName;
     private String prerequisite;
+
+
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Professor.class)
+    private Professor professor;
+
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Major.class)
+    private Major major;
 
 }
