@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 class majorController {
 
     @Autowired
-    private majorRepository majorrepository;
+    private majorRepository majorRepository;
     @Autowired
     private courseRepository courseRepository;
     @Autowired
