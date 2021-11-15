@@ -25,13 +25,13 @@ class majorController {
     @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/majorinfo/{name}")
     public String majorDetails(@PathVariable String name) {
-        return majorrepository.findBymajorname(name).toString();
+        return majorRepository.findBymajorname(name).toString();
     }
 
     @CrossOrigin(origins = "http://localhost:8080")
     @PutMapping("/update/{name}")
     public void updateMajorDetails(@RequestBody Major newMajor, @PathVariable int name) {
-        majorrepository.save(newMajor);
+        majorRepository.save(newMajor);
     }
 
     @CrossOrigin(origins = "http://localhost:8080")
@@ -46,13 +46,13 @@ class majorController {
     @CrossOrigin(origins = "http://localhost:8080")
     @PutMapping("/addCourse/{name}")
     public void addCourse(@PathVariable String name, @RequestBody Course newCourse) {
-        Major curMajor = Majorrepository.findBymajorname(name);
+        Major curMajor = majorRepository.findBymajorname(name);
         CourseNoSQL courseNoSQL = new CourseNoSQL();
         courseNoSQL.setCourseid(newCourse.getCourseid());
         newCourse.setMajor(curMajor);
         courseNoSQLRepository.save(courseNoSQL);
         curMajor.getCourseList().add(newCourse);
-        Majorrepository.save(curMajor);
+        majorRepository.save(curMajor);
 
     }
 
