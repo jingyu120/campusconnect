@@ -27,6 +27,7 @@ public class Minor {
     private String electives;
 
     private String units;
+    
     @OneToMany(fetch = FetchType.LAZY, targetEntity = Course.class,cascade = {CascadeType.ALL})
     private List<Course> courseList = new ArrayList<>();
 
