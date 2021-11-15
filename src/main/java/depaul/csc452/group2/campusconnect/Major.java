@@ -8,18 +8,18 @@ import java.util.ArrayList;
 
 @Data
 @Entity
-@Table(name = "Minor")
+@Table(name = "Major")
 
 
-//(Manli)Minor: minorID(p), minorName, required classes, electives, units required
+//(Manli)Major: majorID(p), majorName, required classes, electives, units required
 
-public class Minor {
+public class Major {
     @Id
     @GeneratedValue
-    private long minorID;
+    private long majorID;
 
     @Column(name = "nm")
-    private String minorName;
+    private String majorName;
 
     @Email(message = "classes required: ")
     private String requiredClasses;
@@ -27,6 +27,7 @@ public class Minor {
     private String electives;
 
     private String units;
+
     @OneToMany(fetch = FetchType.LAZY, targetEntity = Course.class,cascade = {CascadeType.ALL})
     private List<Course> courseList = new ArrayList<>();
 
