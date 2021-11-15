@@ -1,5 +1,6 @@
 package depaul.csc452.group2.campusconnect.major;
 
+import depaul.csc452.group2.campusconnect.courses.noSQLCourse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,7 +28,7 @@ class majorController {
     public String majorDetails(@PathVariable String name) {
         return majorRepository.findBymajorname(name).toString();
     }
-    
+
     @CrossOrigin(origins = "http://localhost:8080")
     @DeleteMapping("/deleteCourse/{name}/{cid}")
     public void DeleteCourse(@PathVariable String name, @PathVariable long cid) {
@@ -37,18 +38,18 @@ class majorController {
         noSQLCourseRepository.deleteById(deleteCourse.getCourseid());
     }
 
-    
+
 
     @CrossOrigin(origins = "http://localhost:8080")
     @PutMapping("/addCourse/{name}")
     public void addCourse(@PathVariable String name, @RequestBody Course newCourse) {
-        Major curMajor = majorRepository.findBymajorname(name);
-        CourseNoSQL courseNoSQL = new CourseNoSQL();
+        Major currentMajor = majorRepository.findBymajorname(name);
+        noSQLCourse courseNoSQL = new noSQLCourse();
         courseNoSQL.setCourseid(newCourse.getCourseid());
-        newCourse.setMajor(curMajor);
-        courseNoSQLRepository.save(courseNoSQL);
-        curMajor.getCourseList().add(newCourse);
-        majorRepository.save(curMajor);
+        newCourse.setMajor(currentMajor);
+        noSQLCourseRepository.save(courseNoSQL);
+        currentMajor.getCourseList().add(newCourse);
+        majorRepository.save(currentMajor);
 
     }
     @CrossOrigin(origins = "http://localhost:8080")
