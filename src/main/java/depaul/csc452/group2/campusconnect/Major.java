@@ -1,12 +1,10 @@
 package depaul.csc452.group2.campusconnect;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 
 import lombok.Data;
+
+import java.util.ArrayList;
 
 @Data
 @Entity
@@ -29,5 +27,8 @@ public class Major {
     private String electives;
 
     private String units;
-}
+
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = Course.class,cascade = {CascadeType.ALL})
+    private List<Course> courseList = new ArrayList<>();
+
 }
