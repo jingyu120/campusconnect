@@ -1,105 +1,124 @@
 package depaul.csc452.group2.campusconnect;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import depaul.csc452.group2.campusconnect.Student;
+import depaul.csc452.group2.campusconnect.UserProfile;
+import depaul.csc452.group2.campusconnect.UserProfileRepository;
+
 import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
+
+@Controller
 public class CampusConnectApplication {
-	private static final Logger log = LoggerFactory.getLogger(CampusConnectApplication.class);
+    private static final Logger log = LoggerFactory.getLogger(CampusConnectApplication.class);
+
+    @Autowired
+    private StudentRepository studentrepository;
+
+    @Autowired
+    private UserProfileRepository userRepository;
+
+    @Autowired
+    private noSQLStudentRepository noSQLStudentRepository;
+
+
+    @GetMapping("/")
+    public String start() {
+        return "homepage";
+    }
+    
+    @GetMapping("/login")
+    public String login() {return "login"; }
+
+    @GetMapping("/home")
+    public String home() {
+        return "homepage";
+    }
+
+
+    @Bean
+    public CommandLineRunner saveUserProfile(UserProfileRepository repository) {
+        return (args) -> {
+            UserProfile profile = new UserProfile();
+            profile.setUserID(1);
+            profile.setEmail("myemail@gmail.com");
+            profile.setGender("male");
+            repository.save(profile);
+
+            UserProfile profile2 = new UserProfile();
+            profile2.setUserID(2);
+            profile2.setEmail("goldentanchy@gmail.com");
+            profile2.setGender("female");
+            repository.save(profile);
+
+            List<UserProfile> profiles = repository.findAll();
+            for (UserProfile p : profiles) {
+                log.info(p.toString());
+                System.out.println(p);
+            }
+        };
+    }
 
 	@Bean
-	public CommandLineRunner saveUserProfile(UserProfileRepository repository) {
+	public CommandLineRunner saveStudent(StudentRepository repository) {
 		return (args) -> {
+			Student s1 = new Student();
+			s1.setName("JZ");
+			s1.setMajor("Computer Science");
+			repository.save(s1);
 
-			UserProfile profile = new UserProfile();
-			profile.setUserID(1);
-			profile.setEmail("jingyu120@gmail.com");
-			profile.setGender("male");
-			repository.save(profile);
+			Student s2 = new Student();
+			s2.setName("Vanessa");
+			s2.setMajor("Civil Engineering");
+			repository.save(s2);
 
-			UserProfile profile2 = new UserProfile();
-			profile2.setUserID(2);
-			profile2.setEmail("goldentanchy@gmail.com");
-			profile2.setGender("female");
-			repository.save(profile);
-
-			List<UserProfile> profiles = repository.findAll();
-			for (UserProfile p : profiles) {
-				log.info(p.toString());
-				System.out.println(p);
+			List<Student> students = repository.findAll();
+			for (Student s : students) {
+				log.info(s.toString());
+				System.out.println(s);
 			}
 		};
 	}
-//	NOT WORKING YET. something wrong with schema type?
+//
 //	@Bean
-//	public CommandLineRunner saveStudentEnrollment(StudentEnrollmentRepository repository) {
+//	public CommandLineRunner addStudent(StudentRepository repository) {
 //		return (args) -> {
-//			StudentEnrollment enroll1 = new StudentEnrollment();
-//			enroll1.setEnrolledPeriod("Fall");
-//			enroll1.setStudentCourse(new StudentCourse("123", "456"));
-//			repository.save(enroll1);
+//			// fetch all Course
+//			Student student2 = new Student();
+//			student2.setEmail("student@gmail.com");
+//			student2.setName("Jon Snow");
+//			student2.setMajor("WinterMajor");
+//			repository.save(student2);
 //
-//			StudentEnrollment enroll2 = new StudentEnrollment();
-//			enroll1.setEnrolledPeriod("Spring");
-//			enroll1.setStudentCourse(new StudentCourse("231", "323"));
-//			repository.save(enroll2);
+//			Student student = new Student();
+//			student.setEmail("james@bond.uk");
+//			student.setName("James Bond");
+//			student.setMajor("Computer Science");
+//			repository.save(student);
 //
-//			List<StudentEnrollment> enrolls = repository.findAll();
-//			for (StudentEnrollment enroll : enrolls) {
-//				log.info(enroll.toString());
-//				System.out.println(enroll);
+//			List<Student> students = repository.findAll();
+//			for (Student s : students) {
+//				log.info(s.toString());
+//				System.out.println(s);
 //			}
 //		};
 //	}
 
-	@Bean
-	public CommandLineRunner saveCourseReview(CourseReviewRepository repository) {
-		return (args) -> {
-			CourseReview review1 = new CourseReview();
-			review1.setCourse("hello");
-			review1.setReview("some data");
-			repository.save(review1);
-
-			CourseReview review2 = new CourseReview();
-			review2.setCourse("SE450");
-			review2.setReview("useless");
-			repository.save(review2);
-
-			List<CourseReview> reviews = repository.findAll();
-			for (CourseReview review : reviews) {
-				log.info(review.toString());
-				System.out.println(review);
-			}
-		};
-	}
-
-	@Bean
-	public CommandLineRunner addStudent(StudentRepository repository) {
-		return (args) -> {
-			// fetch all Course
-			log.info("Before James: " + repository.count());
-			Student student2 = new Student();
-			student2.setEmail("student@gmail.com");
-			student2.setName("Jon Snow");
-			student2.setMajor("WinterMajor");
-			repository.save(student2);
-
-			Student student = new Student();
-			student.setEmail("james@bond.uk");
-			student.setName("James Bond");
-			student.setMajor("Computer Science");
-			repository.save(student);
-			log.info("After James: " + repository.count());
-		};
-	}
-
-	public static void main(String[] args) {
-		SpringApplication.run(CampusConnectApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CampusConnectApplication.class, args);
+    }
 }
