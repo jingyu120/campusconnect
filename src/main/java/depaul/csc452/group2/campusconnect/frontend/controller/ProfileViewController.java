@@ -38,7 +38,7 @@ public class ProfileViewController {
 
     @RequestMapping("/adduser")
     public String adduser(Model model) {
-        return "AddUserForm";
+        return "newUser";
     }
 
 
