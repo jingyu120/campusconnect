@@ -21,7 +21,7 @@ import javax.persistence.Transient;
 @Document(collection = "Courses")
 public class Courses {
     @Transient
-    public static final String SEQUENCE_NAME = "courses_sequence";
+    public static final String SEQUENCE_NAME = "course list";
 
     @Id
     private long courseID;
