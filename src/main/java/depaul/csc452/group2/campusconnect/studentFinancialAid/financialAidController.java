@@ -20,7 +20,7 @@ public class financialAidController {
     }
 
     @CrossOrigin(origins = "http://localhost:8080")
-    @GetMapping("/price/{id}")
+    @GetMapping("/amount/{id}")
     public int currentBalance(@PathVariable Long id ) {
         return financialAidRepository.findBystudentid(id).getAidAmount();
     }
@@ -29,33 +29,34 @@ public class financialAidController {
     @GetMapping("/financialAidInformation")
     public static class Payment {
         protected String type;
-        protected double price;
+        protected double amount;
         protected List<Payment> payments = new ArrayList<>();
 
 
-        public Payment(String type, double price) {
+        public Payment(String type, double amount) {
             super();
             this.type = type;
-            this.price = price;
+            this.amount = amount;
         }
 
-        public void pay() {
-            System.out.println(type + " " + price + "$");
-        }
 
 
         public void makePayment(Payment payment) {
             payments.add(payment);
             payment.pay();
         }
+         public void pay() {
+            System.out.println(type + " " + "$" + amount);
+        }
+
     }
 
         @CrossOrigin(origins = "http://localhost:8080")
-        @GetMapping("/price/{id}")
+        @GetMapping("/amount/{id}")
         public void applyForScholarship() {
             if (student.eligibleScholarships.isEmpty())
             {
-                System.out.println("Sorry you are not eligible for scholarships.");
+                System.out.println("You are not eligible for scholarships.");
             }
             else
             {
