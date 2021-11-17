@@ -28,9 +28,9 @@ public class CourseController {
     @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/info")
     public String courseInformation(Model model) {
-        Long disconnectUserId = UserUtil.getUserId();
+        Long campusConnectUserId = UserUtil.getUserId();
         String username = UserUtil.getUsername();
-        noSQLStudent student = noSQLStudentRepository.findBystudentid(disconnectUserId);
+        noSQLStudent student = noSQLStudentRepository.findBystudentid(campusConnectUserId);
         Set<String> curCourses = student.currentRegisStudents();
         List<Course> curList = new ArrayList<>();
         List<noSQLCourse> nosqlList = new ArrayList<>();
@@ -47,7 +47,7 @@ public class CourseController {
         model.addAttribute("curList", currentList);
         model.addAttribute("nosqlList", nosqlList);
         model.addAttribute("allCourse", allCourse);
-        model.addAttribute("sid", disconnectUserId);
+        model.addAttribute("sid", campusConnectUserId);
         return "courses";
 
     }
