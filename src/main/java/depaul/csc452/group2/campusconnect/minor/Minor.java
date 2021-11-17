@@ -18,7 +18,7 @@ public class Minor {
     @GeneratedValue
     private long minorID;
 
-    @Column(name = "nm")
+    @Column(name = "minor courses: ")
     private String minorName;
 
     @Email(message = "classes required: ")
